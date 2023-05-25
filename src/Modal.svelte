@@ -1,13 +1,13 @@
 <script>
 	export let isPromo = false
 	export let showModal = false
-	export let message = "default message"
 </script>
 
 {#if showModal}
 	<div class="backdrop" class:promo={isPromo} on:click|self>
-		<div class="modal" />
-		<p>{message}</p>
+		<div class="modal">
+			<slot />
+		</div>
 	</div>
 {/if}
 
@@ -21,6 +21,7 @@
 	.modal {
 		background: white;
 		width: 70%;
+		/* max-width: 400px; */
 		text-align: center;
 		padding: 10px;
 		border-radius: 15px;
